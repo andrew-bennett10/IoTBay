@@ -1,0 +1,55 @@
+﻿.MainTitle {
+    text-align: center;
+    padding-top: 20px;
+    color: white;
+    font-size: 60px;
+}
+.navigation ul {
+    list-style-type: none;
+    background-color: lightslategrey;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+.specialNav {
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.navigation a {
+    padding: 15px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+.navigation a:hover{
+    background-color: lightsteelblue;
+}
+.navigation li{
+    float: left;
+}
+.BackImg{
+    background: url("futuristic-smart-city-with-5g-global-network-technology.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.75;
+    background-color: lightsteelblue;
+}
+.InnerParra {
+    padding: 10% 0;
+}
+.FillerText {
+    font-size: 20px;
+    text-align: center;
+}
+.BigButton {
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
