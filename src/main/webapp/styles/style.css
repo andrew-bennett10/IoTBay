@@ -34,7 +34,7 @@
     float: left;
 }
 .BackImg{
-    background: url("futuristic-smart-city-with-5g-global-network-technology.jpg");
+    background: url("/images/BackImg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
