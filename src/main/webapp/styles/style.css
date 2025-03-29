@@ -34,7 +34,7 @@
     float: left;
 }
 .BackImg{
-    background: url("/images/BackImg.jpg");
+    background-image: url("/images/BackImg.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
