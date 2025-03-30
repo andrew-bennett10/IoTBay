@@ -1,0 +1,186 @@
+31-Mar-2025 00:29:38.120 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.36
+31-Mar-2025 00:29:38.123 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 13 2025 13:13:30 UTC
+31-Mar-2025 00:29:38.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.36.0
+31-Mar-2025 00:29:38.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+31-Mar-2025 00:29:38.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+31-Mar-2025 00:29:38.124 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-Mar-2025 00:29:38.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\leolu\.jdks\temurin-21.0.6
+31-Mar-2025 00:29:38.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.6+7-LTS
+31-Mar-2025 00:29:38.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+31-Mar-2025 00:29:38.125 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:29:38.126 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:29:38.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+31-Mar-2025 00:29:38.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+31-Mar-2025 00:29:38.140 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\temp
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\logging.properties
+31-Mar-2025 00:29:38.141 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Mar-2025 00:29:38.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4.1\lib\idea_rt.jar=51650
+31-Mar-2025 00:29:38.142 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+31-Mar-2025 00:29:38.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+31-Mar-2025 00:29:38.143 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+31-Mar-2025 00:29:38.152 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\leolu\.jdks\temurin-21.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\leolu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python39\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\;C:\Users\leolu\AppData\Local\Microsoft\WindowsApps;C:\Users\leolu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\leolu\AppData\Local\GitHubDesktop\bin;C:\Users\leolu\AppData\Local\Programs\Swift\Runtimes\6.0.3\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Toolchains\6.0.3+Asserts\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Tools\6.0.3\;.]
+31-Mar-2025 00:29:38.444 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:29:38.457 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [570] milliseconds
+31-Mar-2025 00:29:38.498 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-Mar-2025 00:29:38.498 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.36]
+31-Mar-2025 00:29:38.510 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml]
+31-Mar-2025 00:29:38.790 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml] has finished in [280] ms
+31-Mar-2025 00:29:38.793 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:29:38.823 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [365] milliseconds
+31-Mar-2025 00:32:14.706 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:32:14.728 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+31-Mar-2025 00:32:14.739 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:32:14.743 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:32:19.583 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.36
+31-Mar-2025 00:32:19.588 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 13 2025 13:13:30 UTC
+31-Mar-2025 00:32:19.588 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.36.0
+31-Mar-2025 00:32:19.588 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+31-Mar-2025 00:32:19.589 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+31-Mar-2025 00:32:19.589 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-Mar-2025 00:32:19.589 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\leolu\.jdks\temurin-21.0.6
+31-Mar-2025 00:32:19.590 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.6+7-LTS
+31-Mar-2025 00:32:19.590 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+31-Mar-2025 00:32:19.590 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:32:19.591 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\temp
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\logging.properties
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Mar-2025 00:32:19.599 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4.1\lib\idea_rt.jar=51983
+31-Mar-2025 00:32:19.600 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+31-Mar-2025 00:32:19.600 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+31-Mar-2025 00:32:19.600 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+31-Mar-2025 00:32:19.609 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\leolu\.jdks\temurin-21.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\leolu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python39\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\;C:\Users\leolu\AppData\Local\Microsoft\WindowsApps;C:\Users\leolu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\leolu\AppData\Local\GitHubDesktop\bin;C:\Users\leolu\AppData\Local\Programs\Swift\Runtimes\6.0.3\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Toolchains\6.0.3+Asserts\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Tools\6.0.3\;.]
+31-Mar-2025 00:32:19.879 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:32:19.894 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [516] milliseconds
+31-Mar-2025 00:32:19.971 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-Mar-2025 00:32:19.971 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.36]
+31-Mar-2025 00:32:19.982 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml]
+31-Mar-2025 00:32:20.311 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml] has finished in [329] ms
+31-Mar-2025 00:32:20.316 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:32:20.347 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [449] milliseconds
+31-Mar-2025 00:37:38.184 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:37:38.213 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+31-Mar-2025 00:37:38.237 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:37:38.253 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:37:42.713 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.36
+31-Mar-2025 00:37:42.717 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 13 2025 13:13:30 UTC
+31-Mar-2025 00:37:42.718 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.36.0
+31-Mar-2025 00:37:42.719 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+31-Mar-2025 00:37:42.719 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+31-Mar-2025 00:37:42.719 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-Mar-2025 00:37:42.719 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\leolu\.jdks\temurin-21.0.6
+31-Mar-2025 00:37:42.720 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.6+7-LTS
+31-Mar-2025 00:37:42.720 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+31-Mar-2025 00:37:42.721 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:37:42.721 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:37:42.730 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\temp
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\logging.properties
+31-Mar-2025 00:37:42.731 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Mar-2025 00:37:42.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4.1\lib\idea_rt.jar=52514
+31-Mar-2025 00:37:42.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+31-Mar-2025 00:37:42.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+31-Mar-2025 00:37:42.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+31-Mar-2025 00:37:42.742 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\leolu\.jdks\temurin-21.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\leolu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python39\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\;C:\Users\leolu\AppData\Local\Microsoft\WindowsApps;C:\Users\leolu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\leolu\AppData\Local\GitHubDesktop\bin;C:\Users\leolu\AppData\Local\Programs\Swift\Runtimes\6.0.3\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Toolchains\6.0.3+Asserts\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Tools\6.0.3\;.]
+31-Mar-2025 00:37:43.000 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:37:43.014 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [496] milliseconds
+31-Mar-2025 00:37:43.078 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-Mar-2025 00:37:43.078 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.36]
+31-Mar-2025 00:37:43.088 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml]
+31-Mar-2025 00:37:43.400 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml] has finished in [313] ms
+31-Mar-2025 00:37:43.405 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:37:43.432 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [416] milliseconds
+31-Mar-2025 00:38:46.775 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:38:46.807 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+31-Mar-2025 00:38:46.821 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:38:46.831 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:38:52.452 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.36
+31-Mar-2025 00:38:52.456 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 13 2025 13:13:30 UTC
+31-Mar-2025 00:38:52.456 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.36.0
+31-Mar-2025 00:38:52.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+31-Mar-2025 00:38:52.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+31-Mar-2025 00:38:52.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-Mar-2025 00:38:52.457 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\leolu\.jdks\temurin-21.0.6
+31-Mar-2025 00:38:52.458 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.6+7-LTS
+31-Mar-2025 00:38:52.458 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+31-Mar-2025 00:38:52.459 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:38:52.459 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:38:52.467 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+31-Mar-2025 00:38:52.467 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+31-Mar-2025 00:38:52.467 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\temp
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\logging.properties
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Mar-2025 00:38:52.468 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4.1\lib\idea_rt.jar=52637
+31-Mar-2025 00:38:52.469 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+31-Mar-2025 00:38:52.469 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+31-Mar-2025 00:38:52.469 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+31-Mar-2025 00:38:52.477 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\leolu\.jdks\temurin-21.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\leolu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python39\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\;C:\Users\leolu\AppData\Local\Microsoft\WindowsApps;C:\Users\leolu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\leolu\AppData\Local\GitHubDesktop\bin;C:\Users\leolu\AppData\Local\Programs\Swift\Runtimes\6.0.3\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Toolchains\6.0.3+Asserts\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Tools\6.0.3\;.]
+31-Mar-2025 00:38:52.730 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:38:52.743 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [472] milliseconds
+31-Mar-2025 00:38:52.821 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-Mar-2025 00:38:52.821 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.36]
+31-Mar-2025 00:38:52.832 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml]
+31-Mar-2025 00:38:53.217 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml] has finished in [384] ms
+31-Mar-2025 00:38:53.221 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:38:53.251 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [506] milliseconds
+31-Mar-2025 00:40:51.133 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:40:51.159 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+31-Mar-2025 00:40:51.168 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:40:51.179 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:40:56.521 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.1.36
+31-Mar-2025 00:40:56.527 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Feb 13 2025 13:13:30 UTC
+31-Mar-2025 00:40:56.527 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.1.36.0
+31-Mar-2025 00:40:56.528 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+31-Mar-2025 00:40:56.528 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+31-Mar-2025 00:40:56.528 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+31-Mar-2025 00:40:56.528 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\leolu\.jdks\temurin-21.0.6
+31-Mar-2025 00:40:56.529 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.6+7-LTS
+31-Mar-2025 00:40:56.529 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Eclipse Adoptium
+31-Mar-2025 00:40:56.529 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:40:56.529 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\leolu\Downloads\apache-tomcat-10.1.36
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\temp
+31-Mar-2025 00:40:56.541 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\logging.properties
+31-Mar-2025 00:40:56.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+31-Mar-2025 00:40:56.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA 2024.3.4.1\lib\idea_rt.jar=52836
+31-Mar-2025 00:40:56.542 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dfile.encoding=UTF-8
+31-Mar-2025 00:40:56.543 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stdout.encoding=UTF-8
+31-Mar-2025 00:40:56.543 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dsun.stderr.encoding=UTF-8
+31-Mar-2025 00:40:56.551 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\leolu\.jdks\temurin-21.0.6\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\java8path;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Oculus\Support\oculus-runtime;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA app\NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Users\leolu\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python39\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\Scripts\;C:\Users\leolu\AppData\Local\Programs\Python\Python311\;C:\Users\leolu\AppData\Local\Microsoft\WindowsApps;C:\Users\leolu\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\leolu\AppData\Local\GitHubDesktop\bin;C:\Users\leolu\AppData\Local\Programs\Swift\Runtimes\6.0.3\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Toolchains\6.0.3+Asserts\usr\bin\;C:\Users\leolu\AppData\Local\Programs\Swift\Tools\6.0.3\;.]
+31-Mar-2025 00:40:56.837 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:40:56.859 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [536] milliseconds
+31-Mar-2025 00:40:56.931 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+31-Mar-2025 00:40:56.931 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.1.36]
+31-Mar-2025 00:40:56.943 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deploying deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml]
+31-Mar-2025 00:40:57.299 INFO [main] org.apache.catalina.startup.HostConfig.deployDescriptor Deployment of deployment descriptor [C:\Users\leolu\OneDrive\Documents\GitHub\IoTBay\src\conf\Catalina\localhost\ROOT.xml] has finished in [358] ms
+31-Mar-2025 00:40:57.303 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+31-Mar-2025 00:40:57.331 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [470] milliseconds
