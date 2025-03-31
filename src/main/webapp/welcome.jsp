@@ -2,23 +2,14 @@
 <html>
 <head>
     <title>Welcome</title>
-    <style type="text/css">
-        table {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
-<body>
-<div>
+<body class="other-pages">
+<div class="container">
     <h2>Welcome to IoTBay!</h2>
     <p>Welcome!!! (put the username here!!!)</p>
-    <table>
-        <tr>
-            <td><a href="Main.jsp"><button>Main Page</button></a></td>
-            <td><a href="Logout.jsp"><button>Logout</button></a></td>
-        </tr>
-    </table>
+    <a href="main.jsp"><button>Main Page</button></a>
+    <a href="logout.jsp"><button>Logout</button></a>
 </div>
 </body>
 </html>

@@ -135,8 +135,8 @@ public final class welcome_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <p>Welcome, (put the username here)!</p>\r\n");
       out.write("    <table>\r\n");
       out.write("        <tr>\r\n");
-      out.write("            <td><a href=\"Main.jsp\"><button>Main Page</button></a></td>\r\n");
-      out.write("            <td><a href=\"Logout.jsp\"><button>Logout</button></a></td>\r\n");
+      out.write("            <td><a href=\"main.jsp\"><button>Main Page</button></a></td>\r\n");
+      out.write("            <td><a href=\"logout.jsp\"><button>Logout</button></a></td>\r\n");
       out.write("        </tr>\r\n");
       out.write("    </table>\r\n");
       out.write("</div>\r\n");

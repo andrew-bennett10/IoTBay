@@ -134,7 +134,7 @@ public final class Main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <li><a href=\"\">About</a></li>\r\n");
       out.write("        <li><a href=\"\">Browse</a></li>\r\n");
       out.write("        <li><a href=\"\">Profile</a></li>\r\n");
-      out.write("        <li><a href=\"Logout.jsp\">Logout</a></li>\r\n");
+      out.write("        <li><a href=\"logout.jsp\">Logout</a></li>\r\n");
       out.write("    </ul>\r\n");
       out.write("</nav>\r\n");
       out.write("<main>\r\n");
@@ -145,7 +145,7 @@ public final class Main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </div>\r\n");
       out.write("    </section>\r\n");
       out.write("    <p class=\"FillerText\">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus!</p>\r\n");
-      out.write("    <button><a href=\"Logout.jsp\">Logout</a></button>\r\n");
+      out.write("    <button><a href=\"logout.jsp\">Logout</a></button>\r\n");
       out.write("    ");
 
         out.println("Sus");

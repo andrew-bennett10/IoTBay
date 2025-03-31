@@ -2,45 +2,19 @@
 <html>
 <head>
     <title>Register</title>
-    <style type="text/css">
-        table {
-            margin-left: auto;
-            margin-right: auto;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
-<body>
-<div>
+<body class="other-pages">
+<div class="container">
+    <h2>Register</h2>
     <form action="welcome.jsp" method="post">
-        <table>
-            <tr>
-                <th colspan="2">Register</th>
-            </tr>
-            <tr>
-                <td>First Name:</td>
-                <td><input type="text" name="firstName" required></td>
-            </tr>
-            <tr>
-                <td>Last Name:</td>
-                <td><input type="text" name="lastName" required></td>
-            </tr>
-            <tr>
-                <td>Email:</td>
-                <td><input type="email" name="email" required></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td><input type="password" name="password" required></td>
-            </tr>
-            <tr>
-                <td>Confirm Password:</td>
-                <td><input type="password" name="confirmPassword" required></td>
-            </tr>
-            <tr>
-                <td><input type="submit" name="register" value="Register"></td>
-                <td><input type="reset" name="reset" value="Reset"></td>
-            </tr>
-        </table>
+        <input type="text" name="firstName" placeholder="First Name" required>
+        <input type="text" name="lastName" placeholder="Last Name" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required>
+        <input type="submit" name="register" value="Register">
+        <input type="reset" name="reset" value="Reset">
     </form>
 </div>
 </body>
