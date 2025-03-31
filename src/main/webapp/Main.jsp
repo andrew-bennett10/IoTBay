@@ -27,7 +27,7 @@
     <p class="FillerText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus!</p>
     <button><a href="Logout.jsp">Logout</a></button>
     <%
-        out.println("Sus");
+        System.out.println("Sus");
     %>
 </main>
 </body>
