@@ -8,7 +8,7 @@
 <div class="container">
     <h2>Login</h2>
     <form action="welcome.jsp" method="get">
-        <input type="text" name="email" placeholder="Email" required>
+        <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" name="login" value="Login">
         <input type="reset" name="reset" value="Reset">
