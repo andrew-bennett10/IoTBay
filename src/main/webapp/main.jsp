@@ -1,4 +1,11 @@
-﻿<!DOCTYPE html>
+﻿<%@page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="classes.User" %>
+<%
+    User user = (User)session.getAttribute("currentUser");
+    String username = user.getUsername();
+%>
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>Main</title>
@@ -17,7 +24,7 @@
 </nav>
     <section class="BackImg">
         <div class="InnerParra">
-            <h1 class="MainTitle">Welcome (insert User) to IoTBay</h1>
+            <h1 class="MainTitle">Welcome <%=username%> to IoTBay</h1>
             <div class="BigButton"><a href="#"><button>WhateverButton</button></a></div>
         </div>
     </section>
