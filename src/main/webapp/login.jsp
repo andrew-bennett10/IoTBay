@@ -7,7 +7,7 @@
 <body class="other-pages">
 <div class="container">
     <h2>Login</h2>
-    <form action="welcome.jsp" method="get">
+    <form action="LoginServlet" method="post">
         <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="submit" name="login" value="Login">

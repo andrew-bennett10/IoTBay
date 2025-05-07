@@ -1,20 +1,38 @@
-﻿<%@ page import="classes.User" %>
+﻿<%@ page import="classes.model.dao.DAO" %>
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String firstname = request.getParameter("firstName");
-    String lastname = request.getParameter("lastName");
-    String email = request.getParameter("email");
-    String password = request.getParameter("password");
-    String confirmPassword = request.getParameter("confirmPassword");
+    String username = null;
+    String fName;
+    String lName;
 
-    String username = firstname+" "+lastname;
-
-    if (password.equals(confirmPassword)) {
-        User user = new User(username, email, password);
-        session.setAttribute("currentUser", user);
+    if("customer".equals(session.getAttribute("userType"))){
+        fName = (String) session.getAttribute("fName");
+        lName = (String) session.getAttribute("lName");
+        String email = (String) session.getAttribute("email");
+        String password = (String) session.getAttribute("password");
+        Integer age = (Integer) session.getAttribute("age");
+        String address = (String) session.getAttribute("address");
+        Boolean registered = (Boolean)session.getAttribute("registered");
+        String phoneNumber = (String) session.getAttribute("phoneNumber");
+        username = fName + " " + lName;
+    } else if ("staff".equals(session.getAttribute("userType"))) {
+        String email = (String) session.getAttribute("email");
+        String password = (String) session.getAttribute("password");
+        fName = (String) session.getAttribute("fName");
+        lName = (String) session.getAttribute("lName");
+        String role = (String) session.getAttribute("role");
+        String phoneNumber = (String) session.getAttribute("phoneNumber");
+        username = fName + " " + lName;
     }
-    else {
-        response.sendRedirect("register.jsp");
+
+    String errorMessage;
+
+    DAO db = (DAO) session.getAttribute("db");
+    if(db == null){
+        errorMessage = "Failed in connecting database";
+        request.setAttribute("errorMessage", errorMessage);
+        request.getRequestDispatcher("register.jsp").forward(request,response);
+        return;
     }
 %>
 <html>

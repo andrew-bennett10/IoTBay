@@ -38,7 +38,7 @@
             <xs:attribute name="roles" type="xs:string" />
           </xs:complexType>
         </xs:element>
-        <xs:element name="user">
+        <xs:element name="customer">
           <xs:complexType>
             <xs:attribute name="username" use="required" type="users:entityname" />
             <xs:attribute name="fullname" type="xs:string" />
