@@ -47,7 +47,7 @@
     
   <GlobalNamingResources>
         
-    <!-- Editable user database that can also be used by
+    <!-- Editable customer database that can also be used by
          UserDatabaseRealm to authenticate users
     -->
         
@@ -142,7 +142,7 @@
       <Cluster className="org.apache.catalina.ha.tcp.SimpleTcpCluster"/>
       -->
             
-      <!-- Use the LockOutRealm to prevent attempts to guess user passwords
+      <!-- Use the LockOutRealm to prevent attempts to guess customer passwords
            via a brute-force attack -->
             
       <Realm className="org.apache.catalina.realm.LockOutRealm">

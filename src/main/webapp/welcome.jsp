@@ -1,4 +1,4 @@
-﻿<%@ page import="classes.User" %>
+﻿<%@ page import="classes.model.Customer" %>
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     String firstname = request.getParameter("firstName");
@@ -10,8 +10,8 @@
     String username = firstname+" "+lastname;
 
     if (password.equals(confirmPassword)) {
-        User user = new User(username, email, password);
-        session.setAttribute("currentUser", user);
+        Customer customer = new Customer(username, email, password);
+        session.setAttribute("currentUser", customer);
     }
     else {
         response.sendRedirect("register.jsp");

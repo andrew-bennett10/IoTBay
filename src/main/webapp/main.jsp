@@ -1,8 +1,8 @@
 ﻿<%@page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="classes.User" %>
+<%@ page import="classes.model.Customer" %>
 <%
-    User user = (User)session.getAttribute("currentUser");
-    String username = user.getUsername();
+    Customer customer = (Customer)session.getAttribute("currentUser");
+    String username = customer.getUsername();
 %>
 
 <!DOCTYPE html>
