@@ -88,3 +88,18 @@ CREATE TABLE CUSTOMER_ORDER (
                                     REFERENCES PRODUCTS(ProductId)
 );
 -- INSERT INTO CUSTOMER_ORDER (CustomerId, ProductId) VALUES (1, 1);
+
+DROP TABLE IF EXISTS PAYMENT_DETAILS;
+CREATE TABLE PAYMENT_DETAILS (
+                                 PaymentId           INTEGER PRIMARY KEY AUTOINCREMENT,
+                                 CustomerId          INTEGER,
+                                 CardNumber          VARCHAR(20),
+                                 CardHolderName      VARCHAR(50),
+                                 ExpiryDate          VARCHAR(7), -- Format like MM/YYYY or MM/YY
+                                 CVV                 VARCHAR(4),
+                                 OrderDate           TEXT, -- Stores date and time as text, e.g., ISO8601 format
+                                 CONSTRAINT FK_Customer_Payment
+                                     FOREIGN KEY (CustomerId)
+                                         REFERENCES CUSTOMERS(CustomerId)
+);
+-- Payment table - Ronin

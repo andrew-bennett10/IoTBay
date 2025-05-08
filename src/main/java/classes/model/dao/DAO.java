@@ -1,5 +1,7 @@
 package classes.model.dao;
 
+import classes.model.PaymentDetail; // Import PaymentDetail
+
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -11,12 +13,15 @@ public class DAO {
         tables = new ArrayList<>();
         Connection connection = new DBConnector().getConnection();
         try {
-            tables.add(new CustomerDBManager(connection));
-            tables.add(new ProductDBManager(connection));
-            tables.add(new StaffDBManager(connection));
-            tables.add(new AccessLogDBManager(connection));
+            tables.add(new CustomerDBManager(connection)); // Index 0
+            tables.add(new ProductDBManager(connection));  // Index 1
+            tables.add(new StaffDBManager(connection));    // Index 2
+            tables.add(new AccessLogDBManager(connection)); // Index 3
+            tables.add(new PaymentDetailsDBManager(connection)); // Index 4
         } catch (SQLException ex) {
             System.out.println("Error initializing DBManagers");
+            // It's good practice to re-throw the exception or handle it more robustly
+            throw ex;
         }
     }
 
@@ -34,5 +39,14 @@ public class DAO {
 
     public AccessLogDBManager AccessLog() {
         return (AccessLogDBManager) tables.get(3);
+    }
+
+    public PaymentDetailsDBManager PaymentDetails() {
+        return (PaymentDetailsDBManager) tables.get(4);
+    }
+
+    // New method to add payment details
+    public PaymentDetail addPaymentDetail(PaymentDetail paymentDetail) throws SQLException {
+        return this.PaymentDetails().add(paymentDetail);
     }
 }
