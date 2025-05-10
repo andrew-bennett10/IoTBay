@@ -25,7 +25,6 @@ public class Customer implements Serializable, User {
         this.address = address;
         this.registered = registered;
         this.isStaff = isStaff;
-
     }
 
     public Customer(String email, String password, String fName, String lName, Integer age, String address, Boolean registered, Boolean isStaff) {
@@ -37,7 +36,6 @@ public class Customer implements Serializable, User {
         this.address = address;
         this.registered = registered;
         this.isStaff = isStaff;
-
     }
 
 
@@ -104,7 +102,6 @@ public class Customer implements Serializable, User {
         this.isStaff = isStaff;
     }
 
-
-
+    public String getName() { return this.fName + " " + this.lName; }
 
 }

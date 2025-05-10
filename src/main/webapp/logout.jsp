@@ -6,7 +6,9 @@
 <body class="other-pages">
 <div class="container">
     <h2>Logout From Session</h2>
-    <a href="index.jsp"><button>Confirm</button></a>
+    <form action="LogoutServlet" method="post">
+        <button type="submit">Confirm</button>
+    </form>
     <a href="main.jsp"><button>Cancel</button></a>
 </div>
 </body>

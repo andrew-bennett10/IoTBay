@@ -1,8 +1,6 @@
 package classes.model.dao;
 
 import classes.model.Customer;
-//import classes.model.User;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -19,7 +17,6 @@ public class CustomerDBManager extends DBManager<Customer> {
         super(connection);
     }
 
-    //CREATE
     public Customer add(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered) VALUES (?, ?, ?, ?, ?, ?, ?)");
         preparedStatement.setString(1, customer.getEmail());
@@ -56,7 +53,6 @@ public class CustomerDBManager extends DBManager<Customer> {
         return new Customer(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getInt(6), resultSet.getString(7), resultSet.getBoolean(8), false);
     }
 
-    //UPDATE
     public void update(Customer oldCustomer, Customer newCustomer) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE CUSTOMERS SET Email = ?, Password = ?, FName = ?, LName = ?, Age = ?, Address = ?, Registered = ? WHERE CustomerId = ?");
         preparedStatement.setString(1, newCustomer.getEmail());
@@ -70,11 +66,18 @@ public class CustomerDBManager extends DBManager<Customer> {
         preparedStatement.executeUpdate();
     }
 
-    //DELETE
     public void delete(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM CUSTOMERS WHERE CustomerId = ?");
         preparedStatement.setInt(1, customer.getId());
         preparedStatement.executeUpdate();
     }
 
+    public Boolean checkEmailUsed(String email) throws SQLException {
+        String sql = "SELECT 1 FROM CUSTOMERS WHERE email = ? LIMIT 1";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        }
+    }
 }

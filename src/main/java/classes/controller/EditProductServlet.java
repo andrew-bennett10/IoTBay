@@ -1,6 +1,5 @@
 package classes.controller;
 
-//import classes.model.Customer;
 import classes.model.Product;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -29,7 +28,6 @@ public class EditProductServlet extends HttpServlet {
         String price_string = req.getParameter("price");
         String supplier = req.getParameter("supplier");
 
-
         String errorMessage = null;
 
         if (id_string == null || id_string.isEmpty() ||
@@ -47,8 +45,6 @@ public class EditProductServlet extends HttpServlet {
 //        Integer stock = Integer.parseInt(stock_string);
 //        Float price = Float.valueOf(price_string);
 
-
-
 //        Product new_product = new Product(id, name, description, stock, price, supplier);
 //        Customer existingCustomer = (Customer)session.getAttribute("loggedInUser");
 //        Customer newCustomer = new Customer(email, password, genre);
@@ -61,7 +57,6 @@ public class EditProductServlet extends HttpServlet {
             Product new_product = new Product(id, name, description, stock, price, supplier);
             Product old_product = db.Products().get(id);
             db.Products().update(old_product, new_product);
-//            session.setAttribute("loggedInUser", newCustomer);
         } catch (SQLException e) {
             errorMessage = "An error occurred. Please verify inputs.";
             req.setAttribute("errorMessage", errorMessage);

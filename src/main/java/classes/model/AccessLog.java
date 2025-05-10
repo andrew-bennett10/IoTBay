@@ -1,6 +1,5 @@
 package classes.model;
 
-//import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -16,6 +15,14 @@ public class AccessLog implements Serializable, User {
     }
 
     public AccessLog(Integer user_id, Date login, Date logout, Boolean isStaff) {
+        this.user_id = user_id;
+        this.login = login;
+        this.logout = logout;
+        this.isStaff = isStaff;
+    }
+
+    public AccessLog(Integer accessLogId, Integer user_id, Date login, Date logout, Boolean isStaff) {
+        this.accessLogId = accessLogId;
         this.user_id = user_id;
         this.login = login;
         this.logout = logout;

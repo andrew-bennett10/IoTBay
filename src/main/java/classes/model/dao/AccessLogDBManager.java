@@ -1,23 +1,18 @@
 package classes.model.dao;
 
 import classes.model.AccessLog;
-import classes.model.Customer;
-import classes.model.Staff;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.ArrayList;
 
 
 public class AccessLogDBManager extends DBManager<AccessLog> {
+
     public AccessLogDBManager(Connection connection) throws SQLException {
         super(connection);
     }
 
-    //CREATE
     public AccessLog add(AccessLog accessLog) throws SQLException {
         if (accessLog.getIsStaff()){
             PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO STAFF_ACCESS_LOGS (StaffId, LoginDate, LogoutDate) VALUES (?, ?, ?)");
@@ -26,53 +21,58 @@ public class AccessLogDBManager extends DBManager<AccessLog> {
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
             String loginFormatted = sdf.format(accessLog.getLogin());
-            String logoutFormatted = sdf.format(accessLog.getLogout());
-
             preparedStatement.setString(2, loginFormatted);
-            preparedStatement.setString(3, logoutFormatted);
-            preparedStatement.executeUpdate();
+            if (accessLog.getLogout() != null){
+                String logoutFormatted = sdf.format(accessLog.getLogout());
+                preparedStatement.setString(3, logoutFormatted);
+            }
 
-            preparedStatement = connection.prepareStatement("SELECT MAX(StaffAccLogId) FROM STAFF_ACCESS_LOGS");
-            ResultSet resultSet = preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+            PreparedStatement preparedStatement3 = connection.prepareStatement("SELECT MAX(StaffAccLogId) FROM STAFF_ACCESS_LOGS");
+            ResultSet resultSet = preparedStatement3.executeQuery();
             resultSet.next();
             int accessLogId = resultSet.getInt(1);
-//            int userId = resultSet.getInt(1);
 
             accessLog.setAccessLogId(accessLogId);
+            preparedStatement3.close();
+            resultSet.close();
             return accessLog;
         }
-//        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO CUSTOMER_ACCESS_LOGS (CustomerId, LoginDate, LogoutDate) VALUES (?, ?, ?)");
         else{
-
-
-
-            PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO CUSTOMER_ACCESS_LOGS (CustomerId, LoginDate, LogoutDate) VALUES (?, ?, ?)");
-            preparedStatement.setString(1, String.valueOf(accessLog.getUserId()));
+            PreparedStatement preparedStatement4 = connection.prepareStatement("INSERT INTO CUSTOMER_ACCESS_LOGS (CustomerId, LoginDate, LogoutDate) VALUES (?, ?, ?)");
+            preparedStatement4.setString(1, String.valueOf(accessLog.getUserId()));
 
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
             String loginFormatted = sdf.format(accessLog.getLogin());
-            String logoutFormatted = sdf.format(accessLog.getLogout());
+            preparedStatement4.setString(2, loginFormatted);
+            if (accessLog.getLogout() != null){
 
-            preparedStatement.setString(2, loginFormatted);
-            preparedStatement.setString(3, logoutFormatted);
-            preparedStatement.executeUpdate();
+                String logoutFormatted = sdf.format(accessLog.getLogout());
+                preparedStatement4.setString(3, logoutFormatted);
+            }else {
+                preparedStatement4.setNull(3, java.sql.Types.VARCHAR);
+            }
 
+            preparedStatement4.executeUpdate();
+            preparedStatement4.close();
 
-            preparedStatement = connection.prepareStatement("SELECT MAX(CustomerAccLogId) FROM CUSTOMER_ACCESS_LOGS");
-            ResultSet resultSet = preparedStatement.executeQuery();
+            PreparedStatement preparedStatement2 = connection.prepareStatement("SELECT MAX(CustomerAccLogId) FROM CUSTOMER_ACCESS_LOGS");
+            ResultSet resultSet = preparedStatement2.executeQuery();
             resultSet.next();
             int accessLogId = resultSet.getInt(1);
 
             accessLog.setAccessLogId(accessLogId);
+            resultSet.close();
+            preparedStatement2.close();
             return accessLog;
         }
-
     }
 
-
-
     public AccessLog get(AccessLog accessLog) throws SQLException {
+        System.out.println("3");
         if (accessLog.getIsStaff()) {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM STAFF_ACCESS_LOGS WHERE StaffId = ?");
             preparedStatement.setInt(1, accessLog.getUserId());
@@ -87,10 +87,8 @@ public class AccessLogDBManager extends DBManager<AccessLog> {
             }catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-
-
+            preparedStatement.close();
+            resultSet.close();
 
         } else {
             PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM CUSTOMER_ACCESS_LOGS WHERE CustomerId = ?");
@@ -104,25 +102,78 @@ public class AccessLogDBManager extends DBManager<AccessLog> {
                 Date logoutDate = sdf.parse(resultSet.getString(3));
                 return new AccessLog(resultSet.getInt(1), loginDate, logoutDate, false);
 
-//                return accessLog;
             }catch (Exception e) {
                 e.printStackTrace();
             }
+            preparedStatement.close();
+            resultSet.close();
         }
         return null;
     }
 
+    public ArrayList<AccessLog> getItems(Integer userId, String userType, String logSearch) throws SQLException {
+        PreparedStatement preparedStatement = null;
+        if (userType.equals("staff")) {
+            preparedStatement = connection.prepareStatement("SELECT * FROM STAFF_ACCESS_LOGS WHERE StaffId = ? AND LoginDate LIKE ? ORDER BY LoginDate DESC LIMIT 10");
+        } else {
+            preparedStatement = connection.prepareStatement("SELECT * FROM CUSTOMER_ACCESS_LOGS WHERE CustomerId = ? AND LoginDate LIKE ? ORDER BY LoginDate DESC LIMIT 10");
+        }
+
+        preparedStatement.setInt(1, userId);
+
+        if (logSearch == null) {
+            logSearch = "";
+        }
+
+        preparedStatement.setString(2, "%"+logSearch+"%");
+
+        ResultSet resultSet = preparedStatement.executeQuery();
+
+        ArrayList<AccessLog> accessLogs = new ArrayList<>();
+        while (resultSet.next()) {
+            int id = resultSet.getInt(1);
+            Date loginDate = resultSet.getTimestamp("LoginDate");
+            Date logoutDate = resultSet.getTimestamp("LogoutDate");
+
+            AccessLog log = new AccessLog(id, loginDate, logoutDate, false);
+            accessLogs.add(log);
+        }
+        preparedStatement.close();
+        resultSet.close();
+        return accessLogs;
+    }
+
+    public void endSession() throws SQLException {
+        connection.close();
+    }
 
     public void update(AccessLog oldAccessLog, AccessLog newAccessLog) throws SQLException {
-        PreparedStatement preparedStatement = null;
-        // Does not need to be implemented - to satisfy abstract class.
+        if (newAccessLog.getIsStaff()){
+
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE STAFF_ACCESS_LOGS SET LogoutDate = ? WHERE StaffId = ?");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String logoutFormatted = sdf.format(newAccessLog.getLogout());
+            preparedStatement.setString(1, logoutFormatted);
+            preparedStatement.setString(2, String.valueOf(newAccessLog.getUserId()));
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }
+        else{
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE CUSTOMER_ACCESS_LOGS SET LogoutDate = ? WHERE CustomerId = ?");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            String logoutFormatted = sdf.format(newAccessLog.getLogout());
+            preparedStatement.setString(1, logoutFormatted);
+            preparedStatement.setString(2, String.valueOf(newAccessLog.getUserId()));
+
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+        }
 
     }
 
     public void delete(AccessLog accessLog) throws SQLException {
-        PreparedStatement preparedStatement = null;
         // Does not need to be implemented - to satisfy abstract class.
-
     }
 
 }

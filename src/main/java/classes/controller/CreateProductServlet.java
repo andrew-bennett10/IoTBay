@@ -16,7 +16,6 @@ import java.sql.SQLException;
 public class CreateProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
     }
 
     @Override
@@ -37,7 +36,5 @@ public class CreateProductServlet extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-
     }
 }

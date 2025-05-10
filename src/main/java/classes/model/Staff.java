@@ -28,9 +28,7 @@ public class Staff implements Serializable, User {
         this.fName = fName;
         this.lName = lName;
         this.role = role;
-
     }
-
 
     public Integer getId() {
         return staffId;
@@ -74,7 +72,7 @@ public class Staff implements Serializable, User {
         this.role = role;
     }
 
-
+    public String getName() { return this.fName + " " + this.lName; }
 
 
 }

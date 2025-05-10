@@ -11,7 +11,6 @@ CREATE TABLE CUSTOMERS (
 );
 
 INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered) VALUES ('john@lol.com', '123', 'John', 'Smith', '42', '1 Generic Ln', 'True');
-INSERT INTO CUSTOMERS (Email, Address, Registered) VALUES ('bob@bruh.org', 'Anon Street', 'False');
 
 DROP TABLE IF EXISTS STAFF;
 CREATE TABLE STAFF (

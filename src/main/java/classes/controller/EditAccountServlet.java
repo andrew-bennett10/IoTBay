@@ -23,7 +23,7 @@ public class EditAccountServlet extends HttpServlet {
 
         DAO db = (DAO)session.getAttribute("db");
         String userType = (String) session.getAttribute("userType");
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("loggedInUser");
         String message = null;
 
         try {
@@ -37,10 +37,17 @@ public class EditAccountServlet extends HttpServlet {
                 Integer age = Integer.valueOf(req.getParameter("age"));
                 String address = req.getParameter("address");
 
-                Customer newCustomer = new Customer(customer.getId(), email, password, fName, lName, age, address, true, false);
-                db.Customers().update(customer, newCustomer);
-                session.setAttribute("loggedInUser", newCustomer);
-
+                System.out.println(email);
+                System.out.println(db.Customers().checkEmailUsed(email));
+                System.out.println(!email.equals(customer.getEmail()));
+                if ((db.Customers().checkEmailUsed(email) || db.Staff().checkEmailUsed(email)) && !email.equals(customer.getEmail())) {
+                    message = "This email is already in use.";
+                }
+                else{
+                    Customer newCustomer = new Customer(customer.getId(), email, password, fName, lName, age, address, true, false);
+                    db.Customers().update(customer, newCustomer);
+                    session.setAttribute("loggedInUser", newCustomer);
+                }
 
             } else if ("staff".equals(userType)) {
                 Staff staff = (Staff) user;
@@ -51,25 +58,26 @@ public class EditAccountServlet extends HttpServlet {
                 String lName = req.getParameter("lName");
                 String role = req.getParameter("role");
 
-                Staff newStaff = new Staff(staff.getId(), email, password, fName, lName, role);
-                db.Staff().update(staff, newStaff);
-                session.setAttribute("loggedInUser", newStaff);
-
+                if ((db.Customers().checkEmailUsed(email) || db.Staff().checkEmailUsed(email)) || !email.equals(staff.getEmail())) {
+                    message = "This email is already in use.";
+                }
+                else {
+                    Staff newStaff = new Staff(staff.getId(), email, password, fName, lName, role);
+                    db.Staff().update(staff, newStaff);
+                    session.setAttribute("loggedInUser", newStaff);
+                }
 
             }
         } catch (SQLException e) {
             message = "Failed to remove user from the database";
-//            System.out.format("Failed to remove user from the database");
-//            e.printStackTrace();
+            e.printStackTrace();
         }
-//        resp.sendRedirect("index.jsp");
 
         if (message != null) {
             req.setAttribute("errorMessage", message);
-            req.getRequestDispatcher("editUser.jsp").forward(req, resp);
+            req.getRequestDispatcher("profile.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("main.jsp");
         }
-
     }
 }

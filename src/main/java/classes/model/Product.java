@@ -11,7 +11,6 @@ public class Product implements Serializable {
     private String supplier;
 
     public Product() {
-
     }
 
     public Product(int id, String name, String description, Integer stock, Float price, String supplier) {

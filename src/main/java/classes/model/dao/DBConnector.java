@@ -1,9 +1,6 @@
 package classes.model.dao;
 
-import java.sql.Connection;
-import java.sql.Driver;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBConnector {
     private Connection connection;
@@ -15,11 +12,15 @@ public class DBConnector {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        String url = "jdbc:sqlite:IoTBayStore.db";
+        String url = "jdbc:sqlite:/Users/andrew.bennett/Documents/GitHub/IoTBay/IoTBayStore.db";
         try {
             connection = DriverManager.getConnection(url);
-            connection.setAutoCommit(true);
             System.out.println("Connected to database");
+            try (Statement stmt = connection.createStatement()) {
+                stmt.execute("PRAGMA journal_mode=WAL;");
+                stmt.execute("PRAGMA busy_timeout = 3000;");
+            }
+            connection.setAutoCommit(true);
         }
         catch (SQLException e) {
             e.printStackTrace();

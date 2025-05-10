@@ -20,10 +20,8 @@ public class DeleteAccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
         DAO db = (DAO)session.getAttribute("db");
-
-
         String userType = (String) session.getAttribute("userType");
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute("loggedInUser");
 
         try {
             if ("customer".equals(userType)) {
@@ -32,12 +30,16 @@ public class DeleteAccountServlet extends HttpServlet {
             } else if ("staff".equals(userType)) {
                 Staff staff = (Staff) user;
                 db.Staff().delete(staff);
+            } else {
+                System.out.println("This is broken in DeleteAccountServlet");
             }
         } catch (SQLException e) {
             System.out.format("Failed to remove user from the database");
         }
         session.removeAttribute("loggedInUser");
         session.removeAttribute("userType");
-        resp.sendRedirect("index.jsp");
+
+        req.setAttribute("errorMessage", "Your account has been successfully deleted.");
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 }

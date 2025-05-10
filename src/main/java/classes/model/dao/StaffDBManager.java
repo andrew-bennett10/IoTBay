@@ -18,7 +18,6 @@ public class StaffDBManager extends DBManager<Staff> {
         super(connection);
     }
 
-    //CREATE
     public Staff add(Staff staff) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO STAFF (Email, Password, FName, LName, Role) VALUES (?, ?, ?, ?, ?)");
         preparedStatement.setString(1, staff.getEmail());
@@ -53,7 +52,6 @@ public class StaffDBManager extends DBManager<Staff> {
         return new Staff(resultSet.getInt(1), resultSet.getString(2), resultSet.getString(3), resultSet.getString(4), resultSet.getString(5), resultSet.getString(6));
     }
 
-    //UPDATE
     public void update(Staff oldStaff, Staff newStaff) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE STAFF SET Email = ?, Password = ?, FName = ?, LName = ?, Role = ? WHERE StaffId = ?");
         preparedStatement.setString(1, newStaff.getEmail());
@@ -64,13 +62,20 @@ public class StaffDBManager extends DBManager<Staff> {
         preparedStatement.setInt(6, oldStaff.getId());
         preparedStatement.executeUpdate();
 
-
     }
 
-    //DELETE
     public void delete(Staff staff) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM STAFF WHERE StaffId = ?");
         preparedStatement.setInt(1, staff.getId());
         preparedStatement.executeUpdate();
+    }
+
+    public Boolean checkEmailUsed(String email) throws SQLException {
+        String sql = "SELECT 1 FROM STAFF WHERE email = ? LIMIT 1";
+        try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            preparedStatement.setString(1, email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        }
     }
 }
