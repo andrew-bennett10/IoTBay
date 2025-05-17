@@ -29,20 +29,22 @@
         %>
         <li><a href="profile.jsp">Profile</a></li>
         <li><a href="logout.jsp">Logout</a></li>
+        <li><a href="payment.jsp">Test Payment</a></li> <%-- Added Test Payment Link --%>
         <%
-            } else {
+        } else {
         %>
         <li><a href="index.jsp">Sign in</a></li>
+        <li><a href="payment.jsp">Test Payment</a></li> <%-- Added Test Payment Link for Guest too for testing --%>
         <%
             }
         %>
     </ul>
 </nav>
-    <section class="BackImg">
-        <div class="InnerParra">
-            <h1 class="MainTitle">Welcome <%=name%> to IoTBay</h1>
-        </div>
-    </section>
+<section class="BackImg">
+    <div class="InnerParra">
+        <h1 class="MainTitle">Welcome <%=name%> to IoTBay</h1>
+    </div>
+</section>
 <main >
     <p class="FillerText">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore et molestias non praesentium sit. Alias dolor, eaque in incidunt ipsa ipsum labore magni, nemo numquam quaerat quas rem suscipit temporibus!</p>
 </main>
