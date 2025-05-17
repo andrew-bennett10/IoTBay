@@ -29,12 +29,12 @@
         %>
         <li><a href="profile.jsp">Profile</a></li>
         <li><a href="logout.jsp">Logout</a></li>
-        <li><a href="payment.jsp">Test Payment</a></li> <%-- Added Test Payment Link --%>
+        <li><a href="PaymentHistoryServlet">View Payment History</a></li>
+        <li><a href="payment.jsp">Test Payment</a></li>
         <%
         } else {
         %>
         <li><a href="index.jsp">Sign in</a></li>
-        <li><a href="payment.jsp">Test Payment</a></li> <%-- Added Test Payment Link for Guest too for testing --%>
         <%
             }
         %>

@@ -7,6 +7,10 @@
 --%>
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page import="classes.model.Customer" %>
+<%@ page import="classes.model.dao.DAO" %>
+<%@ page import="classes.model.PaymentDetail" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.sql.SQLException" %>
 <%
   // Check if user is logged in as a customer
   String customerName = (String) session.getAttribute("name");
@@ -14,28 +18,56 @@
   Customer loggedInCustomer = null;
   String customerEmail = null;
 
+  // Variables for autofilling payment details
+  String autoFillCardName = "";
+  String autoFillCardNumber = "";
+  String autoFillExpiryDate = "";
+  String autoFillCvc = "";
+
   if ("customer".equals(userType)) {
     Object userObj = session.getAttribute("loggedInUser");
     if (userObj instanceof Customer) {
       loggedInCustomer = (Customer) userObj;
-      customerEmail = loggedInCustomer.getEmail(); // Assuming getEmail() returns a non-null/non-empty string for a valid customer
+      customerEmail = loggedInCustomer.getEmail();
     }
   }
 
-  // If not a logged-in customer, or essential details (name, email) are missing, redirect.
+// Check if the user is logged in and has a valid customer object
   if (loggedInCustomer == null || customerEmail == null || customerEmail.trim().isEmpty() || customerName == null || customerName.trim().isEmpty()) {
-    response.sendRedirect("index.jsp"); // Redirect to login page or main page if not properly logged in
+    response.sendRedirect("index.jsp");
     return;
   }
 
-  // Retrieve cart total from session, if available
+  // Attempt to fetch latest payment details for autofill
+  if (customerEmail != null && !customerEmail.trim().isEmpty()) {
+    try {
+      DAO dao = new DAO(); // Initialize DAO
+      List<PaymentDetail> paymentHistory = dao.PaymentDetails().getPaymentsByEmail(customerEmail);
+      if (paymentHistory != null && !paymentHistory.isEmpty()) {
+        PaymentDetail latestPayment = paymentHistory.get(0); // getPaymentsByEmail sorts by date desc
+        if (latestPayment != null) {
+          autoFillCardName = latestPayment.getCardName() != null ? latestPayment.getCardName() : "";
+          autoFillCardNumber = latestPayment.getCardNumber() != null ? latestPayment.getCardNumber() : "";
+          autoFillExpiryDate = latestPayment.getExpiryDate() != null ? latestPayment.getExpiryDate() : "";
+          autoFillCvc = latestPayment.getCvc() != null ? latestPayment.getCvc() : "";
+        }
+      }
+    } catch (SQLException e) {
+      System.err.println("Error fetching payment details for autofill: " + e.getMessage());
+    } catch (Exception e) {
+      System.err.println("Unexpected error during payment page setup: " + e.getMessage());
+    }
+  }
+
+
+  // Retrieve cart total from session, if available - this may have to be changed depending on cart implementation
   Double cartTotal = (Double) session.getAttribute("cartTotal");
   if (cartTotal == null) {
-    cartTotal = 0.0; // Default to 0 if not found
+    cartTotal = 0.0;
   }
-  String orderId = (String) session.getAttribute("orderId"); // Assuming orderId is set before reaching payment
+  String orderId = (String) session.getAttribute("orderId"); // This assumes orderId is set before reaching payment - currently if it is null, it will be randomly generated
   if (orderId == null) {
-    orderId = "N/A"; // Or handle appropriately
+    orderId = "N/A";
   }
 %>
 
@@ -44,7 +76,7 @@
 <html>
 <head>
   <title>Payment Page</title>
-  <link rel="stylesheet" type="text/css" href="styles/style.css"> <%-- Assuming you have a style.css --%>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
   <script>
     function validateForm() {
       var cardNumber = document.forms["paymentForm"]["cardNumber"].value;
@@ -52,24 +84,22 @@
       var expiryDate = document.forms["paymentForm"]["expiryDate"].value;
       var cvc = document.forms["paymentForm"]["cvc"].value;
 
-      if (cardNumber == "" || cardName == "" || expiryDate == "" || cvc == "") {
+      // Basic validation for empty fields and format
+      if (cardNumber === "" || cardName === "" || expiryDate === "" || cvc === "") {
         alert("All fields must be filled out");
         return false;
       }
 
-      // Basic card number validation (length)
       if (!/^\d{13,19}$/.test(cardNumber)) {
         alert("Invalid card number format. Must be 13-19 digits.");
         return false;
       }
 
-      // Basic expiry date validation (MM/YY)
       if (!/^(0[1-9]|1[0-2])\/\d{2}$/.test(expiryDate)) {
         alert("Invalid expiry date format. Must be MM/YY.");
         return false;
       }
 
-      // Basic CVC validation (3 or 4 digits)
       if (!/^\d{3,4}$/.test(cvc)) {
         alert("Invalid CVC format. Must be 3 or 4 digits.");
         return false;
@@ -98,19 +128,19 @@
     <form name="paymentForm" action="ProcessPaymentServlet" method="POST" onsubmit="return validateForm()">
       <div>
         <label for="cardName">Name on Card:</label>
-        <input type="text" id="cardName" name="cardName" required>
+        <input type="text" id="cardName" name="cardName" value="<%= autoFillCardName %>" required>
       </div>
       <div>
         <label for="cardNumber">Card Number:</label>
-        <input type="text" id="cardNumber" name="cardNumber" pattern="\d{13,19}" title="Card number must be 13-19 digits" required>
+        <input type="text" id="cardNumber" name="cardNumber" value="<%= autoFillCardNumber %>" pattern="\d{13,19}" title="Card number must be 13-19 digits" required>
       </div>
       <div>
         <label for="expiryDate">Expiry Date (MM/YY):</label>
-        <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" title="MM/YY format" required>
+        <input type="text" id="expiryDate" name="expiryDate" value="<%= autoFillExpiryDate %>" placeholder="MM/YY" pattern="(0[1-9]|1[0-2])\/\d{2}" title="MM/YY format" required>
       </div>
       <div>
         <label for="cvc">CVC:</label>
-        <input type="text" id="cvc" name="cvc" pattern="\d{3,4}" title="CVC must be 3 or 4 digits" required>
+        <input type="text" id="cvc" name="cvc" value="<%= autoFillCvc %>" pattern="\d{3,4}" title="CVC must be 3 or 4 digits" required>
       </div>
       <div>
         <input type="submit" value="Pay Now" class="button">
@@ -122,7 +152,7 @@
     %>
     <p style="color:red;"><%= paymentError %></p>
     <%
-        session.removeAttribute("paymentError"); // Clear the error after displaying
+        session.removeAttribute("paymentError");
       }
       String paymentSuccess = (String) session.getAttribute("paymentSuccess");
       if (paymentSuccess != null) {

@@ -1,10 +1,13 @@
 package classes.controller;
 
+import classes.model.Customer;
 import classes.model.PaymentDetail;
+import classes.model.Staff;
+import classes.model.User;
 import classes.model.dao.DAO;
 
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet; // Import the annotation
+import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -12,13 +15,13 @@ import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.UUID; // Import UUID for generating random orderId
+import java.util.UUID;
 import java.util.regex.Pattern;
 
-@WebServlet("/ProcessPaymentServlet") // Add this annotation
+@WebServlet("/ProcessPaymentServlet")
 public class ProcessPaymentServlet extends HttpServlet {
 
-    private DAO dao; // For database operations
+    private DAO dao;
 
     @Override
     public void init() throws ServletException {
@@ -33,29 +36,41 @@ public class ProcessPaymentServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
 
-        String customerEmail = (String) session.getAttribute("email");
+        // Retrieve the logged-in user and their type from the session
+        User loggedInUser = (User) session.getAttribute("loggedInUser");
+        String userType = (String) session.getAttribute("userType");
+        String customerEmail = null;
+
+        if (loggedInUser != null) {
+            if ("customer".equals(userType) && loggedInUser instanceof Customer) {
+                customerEmail = ((Customer) loggedInUser).getEmail();
+            } else if ("staff".equals(userType) && loggedInUser instanceof Staff) {
+                customerEmail = ((Staff) loggedInUser).getEmail();
+            }
+        }
+
         String orderId = (String) session.getAttribute("orderId");
         Double cartTotal = (Double) session.getAttribute("cartTotal");
 
-        // Handle null orderId by generating a random one
+        // Currently orderID is randomly generated - may change this
         if (orderId == null) {
             orderId = UUID.randomUUID().toString();
-            // Optionally, you might want to store this newly generated orderId back in the session
-            // if other parts of your application might need it before the session is cleared.
-            // session.setAttribute("orderId", orderId);
         }
 
-        // Handle null cartTotal by setting it to $1.00
+        // If cartTotal is null set to 1.0
+        // Will have to see how product pricing works - may change this
         if (cartTotal == null) {
             cartTotal = 1.0;
         }
 
-        if (customerEmail == null) { // Simplified check, as orderId and cartTotal are now handled
-            session.setAttribute("paymentError", "Session expired or required information is missing. Please try again.");
+        // If the user is not logged in or the email is null, redirect to payment.jsp with an error message
+        if (customerEmail == null) {
+            session.setAttribute("paymentError", "Session expired or user information is missing. Please log in and try again.");
             response.sendRedirect("payment.jsp");
             return;
         }
 
+        // Validate payment details
         String cardName = request.getParameter("cardName");
         String cardNumber = request.getParameter("cardNumber");
         String expiryDate = request.getParameter("expiryDate");
