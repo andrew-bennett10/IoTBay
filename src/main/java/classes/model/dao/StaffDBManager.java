@@ -204,6 +204,7 @@ public class StaffDBManager extends DBManager<Staff> {
             return resultSet.next();
         }
     }
+
     public boolean existsEmail(String email) throws SQLException{
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT COUNT(*) FROM STAFF WHERE Email = ?");
         preparedStatement.setString(1,email);

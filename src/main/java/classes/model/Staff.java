@@ -9,7 +9,7 @@ public class Staff implements Serializable, User {
     private String lName;
     private String role;
     private String phoneNumber;
-    private Boolean isActive;
+    private Boolean isActive = true;
 
     public Staff() {}
 

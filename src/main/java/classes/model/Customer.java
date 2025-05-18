@@ -11,7 +11,7 @@ public class Customer implements Serializable, User {
     private String address;
     private Boolean registered;
     private String phoneNumber;
-    private Boolean isActive;
+    private Boolean isActive = true;
 
     private Boolean isStaff; // redundant variable I can't be bothered to remove dont touch just input whatever doesnt matter
 
