@@ -1,28 +1,18 @@
 ﻿<%@ page import="classes.model.dao.DAO" %>
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-    String username = null;
+    String name = null;
     String fName;
     String lName;
 
     if("customer".equals(session.getAttribute("userType"))){
         fName = (String) session.getAttribute("fName");
         lName = (String) session.getAttribute("lName");
-        String email = (String) session.getAttribute("email");
-        String password = (String) session.getAttribute("password");
-        Integer age = (Integer) session.getAttribute("age");
-        String address = (String) session.getAttribute("address");
-        Boolean registered = (Boolean)session.getAttribute("registered");
-        String phoneNumber = (String) session.getAttribute("phoneNumber");
-        username = fName + " " + lName;
+        name = fName + " " + lName;
     } else if ("staff".equals(session.getAttribute("userType"))) {
-        String email = (String) session.getAttribute("email");
-        String password = (String) session.getAttribute("password");
         fName = (String) session.getAttribute("fName");
         lName = (String) session.getAttribute("lName");
-        String role = (String) session.getAttribute("role");
-        String phoneNumber = (String) session.getAttribute("phoneNumber");
-        username = fName + " " + lName;
+        name = fName + " " + lName;
     }
 
     String errorMessage;
@@ -43,7 +33,7 @@
 <body class="other-pages">
 <div class="container">
     <h2>Welcome to IoTBay!</h2>
-    <p>Welcome <%=username%>!</p>
+    <p>Welcome <%=name%>!</p>
     <a href="main.jsp"><button>Main Page</button></a>
     <a href="logout.jsp"><button>Logout</button></a>
 </div>

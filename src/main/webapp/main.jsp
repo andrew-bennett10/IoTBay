@@ -4,17 +4,17 @@
 <%
     String fName = null;
     String lName = null;
-    String username = null;
+    String name = null;
     if("customer".equals(session.getAttribute("userType"))){
         Customer customer = (Customer)session.getAttribute("loggedInUser");
         fName = customer.getFName();
         lName = customer.getLName();
-        username = fName + " " + lName;
+        name = fName + " " + lName;
     } else if ("staff".equals(session.getAttribute("userType"))) {
         Staff staff = (Staff) session.getAttribute("loggedInUser");
         fName = staff.getFName();
         lName = staff.getLName();
-        username = fName + " " + lName;
+        name = fName + " " + lName;
     }
 %>
 
@@ -46,7 +46,7 @@
 </nav>
     <section class="BackImg">
         <div class="InnerParra">
-            <h1 class="MainTitle">Welcome <%=username%> to IoTBay</h1>
+            <h1 class="MainTitle">Welcome <%=name%> to IoTBay</h1>
             <div class="BigButton"><a href="#"><button>WhateverButton</button></a></div>
         </div>
     </section>
