@@ -150,10 +150,10 @@
             }
     %>
     <p>Session ID: <%=logId%><br>Login: <%=loginTime%><br>Logout: <%=logoutText%></p>
-    <p>(Max of 10 records shown)</p>
     <%
         }
     %>
+    <p>(Max of 10 records shown)</p>
 </div>
 </body>
 </html>

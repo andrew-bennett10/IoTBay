@@ -30,7 +30,7 @@
         <li><a href="profile.jsp">Profile</a></li>
         <li><a href="logout.jsp">Logout</a></li>
         <li><a href="PaymentHistoryServlet">View Payment History</a></li>
-        <li><a href="payment.jsp">Test Payment</a></li>
+        <li><a href="payment.jsp">Make Payment</a></li>
         <%
         } else {
         %>
