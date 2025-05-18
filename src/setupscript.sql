@@ -10,7 +10,13 @@ CREATE TABLE CUSTOMERS (
                         Registered  BOOLEAN
 );
 
+ALTER TABLE CUSTOMERS ADD COLUMN PhoneNumber VARCHAR(20);
+ALTER TABLE CUSTOMERS ADD COLUMN IsActive BOOLEAN DEFAULT TRUE;
+
 INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered) VALUES ('john@lol.com', '123', 'John', 'Smith', '42', '1 Generic Ln', 'True');
+INSERT INTO CUSTOMERS (Email, Address, Registered) VALUES ('bob@bruh.org', 'Anon Street', 'False');
+INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered, PhoneNumber, IsActive) VALUES ('2454434529@qq.com','123','Jack','Chen',22,'AU',true,'1234567',true);
+
 
 DROP TABLE IF EXISTS STAFF;
 CREATE TABLE STAFF (
@@ -23,8 +29,12 @@ CREATE TABLE STAFF (
 
 );
 
+ALTER TABLE STAFF ADD COLUMN PhoneNumber VARCHAR(20);
+ALTER TABLE STAFF ADD COLUMN IsActive BOOLEAN DEFAULT TRUE;
+
 INSERT INTO STAFF (Email, Password, FName, LName, Role) VALUES ('Andrew@cool.com', '321', 'Andrew','Bennett','Technical Intern');
 INSERT INTO STAFF (Email, Password, FName, LName, Role) VALUES ('Matthis@cool.com', '3210', 'Matthis','Fontaine','Fungi');
+INSERT INTO STAFF (Email, Password, FName, LName, Role, PhoneNumber, IsActive) VALUES ('Jianan.Huang-3@student.uts.edu.au','123','Jianan','Huang', 'Admin','0430590617', true);
 
 
 DROP TABLE IF EXISTS PRODUCTS;
