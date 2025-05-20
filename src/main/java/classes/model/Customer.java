@@ -10,6 +10,8 @@ public class Customer implements Serializable, User {
     private Integer age;
     private String address;
     private Boolean registered;
+    private String phoneNumber;
+    private Boolean isActive = true;
 
     private Boolean isStaff; // redundant variable I can't be bothered to remove dont touch just input whatever doesnt matter
 
@@ -36,8 +38,33 @@ public class Customer implements Serializable, User {
         this.address = address;
         this.registered = registered;
         this.isStaff = isStaff;
+
     }
 
+    public Customer(String email, String password, String fName, String lName, Integer age, String address, Boolean registered, String phoneNumber, Boolean isActive) {
+        this.email = email;
+        this.password = password;
+        this.fName = fName;
+        this.lName = lName;
+        this.age = age;
+        this.address = address;
+        this.registered = registered;
+        this.phoneNumber = phoneNumber;
+        this.isActive = isActive;
+    }
+
+    public Customer(int customerId,String email, String password, String fName, String lName, Integer age, String address, Boolean registered, String phoneNumber, Boolean isActive) {
+        this.userId = customerId;
+        this.email = email;
+        this.password = password;
+        this.fName = fName;
+        this.lName = lName;
+        this.age = age;
+        this.address = address;
+        this.registered = registered;
+        this.phoneNumber = phoneNumber;
+        this.isActive = isActive;
+    }
 
     public Integer getId() {
         return this.userId;
@@ -103,5 +130,19 @@ public class Customer implements Serializable, User {
     }
 
     public String getName() { return this.fName + " " + this.lName; }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
 }

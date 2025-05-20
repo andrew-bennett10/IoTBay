@@ -25,7 +25,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
         DAO db = ((DAO)req.getSession().getAttribute("db"));
         HttpSession session = req.getSession();
 
@@ -43,6 +42,17 @@ public class LoginServlet extends HttpServlet {
                 AccessLog accessLog = new AccessLog(customer.getId(), currentDate, null, false);
                 session.setAttribute("currentAccessLog", accessLog);
                 db.AccessLog().add(accessLog);
+                session.setAttribute("email",customer.getEmail());
+                session.setAttribute("password",customer.getPassword());
+                session.setAttribute("fName",customer.getFName());
+                session.setAttribute("lName",customer.getLName());
+                session.setAttribute("age",customer.getAge());
+                session.setAttribute("address",customer.getAddress());
+                session.setAttribute("registered",customer.getRegistered());
+                session.setAttribute("phoneNumber",customer.getPhoneNumber());
+                session.setAttribute("isActive",customer.getActive());
+                resp.sendRedirect("welcome.jsp");
+                return;
             } else {
                 StaffDBManager staffDBManager = db.Staff();
                 Staff staff = staffDBManager.get(email, password);
@@ -55,6 +65,14 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("currentAccessLog", accessLog);
                     db.AccessLog().add(accessLog);
 
+                    session.setAttribute("email",staff.getEmail());
+                    session.setAttribute("password",staff.getPassword());
+                    session.setAttribute("fName",staff.getFName());
+                    session.setAttribute("lName",staff.getLName());
+                    session.setAttribute("role",staff.getRole());
+                    session.setAttribute("phoneNumber",staff.getPhoneNumber());
+                    resp.sendRedirect("welcome.jsp");
+                    return;
                 }
                 else {
                     // Invalid login

@@ -84,7 +84,6 @@ public class RegisterServlet extends HttpServlet {
 
         try {
             db.Customers().add(customer);
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

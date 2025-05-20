@@ -8,7 +8,8 @@ public class Staff implements Serializable, User {
     private String fName;
     private String lName;
     private String role;
-
+    private String phoneNumber;
+    private Boolean isActive = true;
 
     public Staff() {}
 
@@ -28,7 +29,30 @@ public class Staff implements Serializable, User {
         this.fName = fName;
         this.lName = lName;
         this.role = role;
+
     }
+
+    public Staff(String email, String password, String fName, String lName, String role, String phoneNumber, Boolean isActive) {
+        this.email = email;
+        this.password = password;
+        this.fName = fName;
+        this.lName = lName;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.isActive = isActive;
+    }
+
+    public Staff(int staffId,String email, String password, String fName, String lName, String role, String phoneNumber, Boolean isActive) {
+        this.staffId = staffId;
+        this.email = email;
+        this.password = password;
+        this.fName = fName;
+        this.lName = lName;
+        this.role = role;
+        this.phoneNumber = phoneNumber;
+        this.isActive = isActive;
+    }
+
 
     public Integer getId() {
         return staffId;
@@ -73,6 +97,19 @@ public class Staff implements Serializable, User {
     }
 
     public String getName() { return this.fName + " " + this.lName; }
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
 
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
+    public Boolean getActive() {
+        return isActive;
+    }
+
+    public void setActive(Boolean isActive) {
+        this.isActive = isActive;
+    }
 }
