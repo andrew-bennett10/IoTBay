@@ -47,6 +47,8 @@ public class EditAccountServlet extends HttpServlet {
                     Customer newCustomer = new Customer(customer.getId(), email, password, fName, lName, age, address, true, false);
                     db.Customers().update(customer, newCustomer);
                     session.setAttribute("loggedInUser", newCustomer);
+                    String name = fName+" "+lName;
+                    session.setAttribute("name", name);
                 }
 
             } else if ("staff".equals(userType)) {
@@ -65,6 +67,8 @@ public class EditAccountServlet extends HttpServlet {
                     Staff newStaff = new Staff(staff.getId(), email, password, fName, lName, role);
                     db.Staff().update(staff, newStaff);
                     session.setAttribute("loggedInUser", newStaff);
+                    String name = fName+" "+lName;
+                    session.setAttribute("name", name);
                 }
 
             }
