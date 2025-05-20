@@ -9,17 +9,17 @@ public class DAO {
 
     public DAO() throws SQLException {
         tables = new ArrayList<>();
-        Connection connection = new DBConnector().getConnection(); // This might create a new connection each time DAO is instantiated. Consider managing connection lifecycle.
+        Connection connection = new DBConnector().getConnection();
         try {
-            tables.add(new CustomerDBManager(connection));    // Index 0
-            tables.add(new ProductDBManager(connection));     // Index 1
-            tables.add(new StaffDBManager(connection));       // Index 2
-            tables.add(new AccessLogDBManager(connection));   // Index 3
-            tables.add(new PaymentDetailDBManager(connection)); // Index 4
+            tables.add(new CustomerDBManager(connection));
+            tables.add(new ProductDBManager(connection));
+            tables.add(new StaffDBManager(connection));
+            tables.add(new AccessLogDBManager(connection));
+            tables.add(new PaymentDetailDBManager(connection));
         } catch (SQLException ex) {
             System.out.println("Error initializing DBManagers: " + ex.getMessage());
-            ex.printStackTrace(); // More detailed error logging
-            throw ex; // Re-throw to indicate DAO initialization failure
+            ex.printStackTrace();
+            throw ex;
         }
     }
 
@@ -40,6 +40,6 @@ public class DAO {
     }
 
     public PaymentDetailDBManager PaymentDetails() {
-        return (PaymentDetailDBManager) tables.get(4); // New accessor
+        return (PaymentDetailDBManager) tables.get(4);
     }
 }
