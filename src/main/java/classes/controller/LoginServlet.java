@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
         try {
             CustomerDBManager customerDBManager = db.Customers();
             Customer customer = customerDBManager.get(email, password);
-            if (customer.getEmail() != null) { // Customer account found
+            if (customer != null) { // Customer account found
                 session.setAttribute("userType", "customer");
                 session.setAttribute("loggedInUser", customer);
                 session.setAttribute("name", customer.getName());
@@ -52,14 +52,16 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("phoneNumber",customer.getPhoneNumber());
                 session.setAttribute("isActive",customer.getActive());
                 resp.sendRedirect("welcome.jsp");
-                return;
             } else {
+                System.out.println("Running staff section");
                 StaffDBManager staffDBManager = db.Staff();
                 Staff staff = staffDBManager.get(email, password);
 
-                if (staff.getEmail() != null) { // Staff account found
+                if (staff != null) { // Staff account found
+                    System.out.println("account found");
                     session.setAttribute("userType", "staff");
                     session.setAttribute("loggedInUser", staff);
+                    session.setAttribute("name", staff.getName());
                     Date currentDate = new Date();
                     AccessLog accessLog = new AccessLog(staff.getId(), currentDate, null, true);
                     session.setAttribute("currentAccessLog", accessLog);
@@ -72,9 +74,9 @@ public class LoginServlet extends HttpServlet {
                     session.setAttribute("role",staff.getRole());
                     session.setAttribute("phoneNumber",staff.getPhoneNumber());
                     resp.sendRedirect("welcome.jsp");
-                    return;
                 }
                 else {
+                    System.out.println("Login attempt failed - user not found");
                     // Invalid login
                     req.setAttribute("errorMessage", "Invalid email or password");
                     req.getRequestDispatcher("login.jsp").forward(req, resp);
@@ -83,22 +85,5 @@ public class LoginServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        String userType = (String) session.getAttribute("userType");
-        User user = (User) session.getAttribute("loggedInUser");
-
-        if ("customer".equals(userType)) {
-            Customer customer = (Customer) user;
-            String name = customer.getFName()+" "+customer.getLName();
-            session.setAttribute("name", name);
-        } else if ("staff".equals(userType)) {
-            Staff staff = (Staff) user;
-            String name = staff.getFName()+" "+staff.getLName();
-            session.setAttribute("name", name);
-        } else {
-            req.setAttribute("errorMessage", "Error finding user.");
-            req.getRequestDispatcher("login.jsp").forward(req, resp);
-        }
-        resp.sendRedirect("welcome.jsp");
     }
 }
