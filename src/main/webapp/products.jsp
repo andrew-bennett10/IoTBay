@@ -20,6 +20,9 @@
 
 
     String userType = (String) session.getAttribute("userType");
+    if (userType == null) {
+        userType = "customer";
+    }
     String name = (String) session.getAttribute("name");
     if (name == null){
         name = "Guest";

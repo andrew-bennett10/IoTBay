@@ -12,7 +12,7 @@ public class DBConnector {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        String url = "jdbc:sqlite:/Users/andrew.bennett/Documents/GitHub/IoTBay/IoTBayStore.db";
+        String url = "jdbc:sqlite:/Users/matthisfontaine/Documents/GitHub/IoTBay/IoTBayStore.db";
 //        String url = "jdbc:sqlite:IoTBayStore.db";
         try {
             connection = DriverManager.getConnection(url);
@@ -20,6 +20,7 @@ public class DBConnector {
             try (Statement stmt = connection.createStatement()) {
                 stmt.execute("PRAGMA journal_mode=WAL;");
                 stmt.execute("PRAGMA busy_timeout = 3000;");
+                System.out.println("hey it worked");
             }
             connection.setAutoCommit(true);
         }
