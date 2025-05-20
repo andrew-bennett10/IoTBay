@@ -38,7 +38,7 @@ CREATE TABLE PRODUCTS (
 );
 INSERT INTO PRODUCTS (Name, Description, Stock, Price, Supplier) VALUES ('Sensor', 'A device which detects or measures a physical property and records, indicates, or otherwise responds to it.', '400', '12.50', 'Andrew Tech LTD.');
 INSERT INTO PRODUCTS (Name, Description, Stock, Price, Supplier) VALUES ('Actuator', 'A device that causes a machine or other device to operate.', '10', '9.45', 'Matthis Corp PTY LTD.');
-INSERT INTO PRODUCTS (Name, Description, Stock, Price, Supplier) VALUES ('Gateway', 'A "gateway" in technology refers to a network node that connects different networks or allows communication between different applications or systems.', '9827', '4.00', 'Europa Coalition.');
+INSERT INTO PRODUCTS (Name, Description, Stock, Price, Supplier) VALUES ('Gateway', 'A gateway in technology refers to a network node that connects different networks or allows communication between different applications or systems.', '9827', '4.00', 'Europa Coalition.');
 
 
 

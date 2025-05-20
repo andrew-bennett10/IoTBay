@@ -23,18 +23,20 @@ public class CreateProductServlet extends HttpServlet {
         DAO db = ((DAO)req.getSession().getAttribute("db"));
         HttpSession session = req.getSession();
 
+        Integer id = Integer.valueOf(req.getParameter("id"));
         String name = req.getParameter("name");
         String description = req.getParameter("description");
         Integer stock = Integer.valueOf(req.getParameter("stock"));
         Float price = Float.valueOf(req.getParameter("price"));
         String supplier = req.getParameter("supplier");
 
-        Product product = new Product(name, description, stock, price, supplier);
+        Product product = new Product(id, name, description, stock, price, supplier);
 
         try {
             db.Products().add(product);
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        resp.sendRedirect("products.jsp");
     }
 }

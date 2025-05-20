@@ -28,6 +28,8 @@ public class EditProductServlet extends HttpServlet {
         String price_string = req.getParameter("price");
         String supplier = req.getParameter("supplier");
 
+//        System.out.println(name + " " + description + " " + stock_string +  " " + price_string + " " + supplier);
+
         String errorMessage = null;
 
         if (id_string == null || id_string.isEmpty() ||
@@ -55,14 +57,18 @@ public class EditProductServlet extends HttpServlet {
             Float price = Float.valueOf(price_string);
 
             Product new_product = new Product(id, name, description, stock, price, supplier);
+//            System.out.println(id + " " + name + " " + description + " " + stock_string +  " " + price_string + " " + supplier + " but down here");
             Product old_product = db.Products().get(id);
+            System.out.println(old_product.getId() + old_product.getName() + old_product.getDescription() + old_product.getStock() + old_product.getPrice() + old_product.getSupplier() + " old");
+//            System.out.println(new_product.getId() + new_product.getName() + new_product.getDescription() + new_product.getStock() + new_product.getPrice() + new_product.getSupplier() + " new");
             db.Products().update(old_product, new_product);
         } catch (SQLException e) {
             errorMessage = "An error occurred. Please verify inputs.";
+            System.out.println(errorMessage);
             req.setAttribute("errorMessage", errorMessage);
             req.getRequestDispatcher("editProduct.jsp").forward(req, resp);
             e.printStackTrace();
         }
-        resp.sendRedirect("index.jsp");
+        resp.sendRedirect("products.jsp");
     }
 }

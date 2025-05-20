@@ -1,11 +1,11 @@
 <%@page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="classes.model.Product" %>
 <%@ page import="classes.model.dao.DAO" %>
 <%
 
     DAO db = (DAO) session.getAttribute("db");
 
 
+    Integer size = (Integer) session.getAttribute("size");
     String name = (String) session.getAttribute("name");
 
     if (name == null){
@@ -44,27 +44,27 @@
 </nav>
 <body class="main-page">
 <div class="container">
-    <%
-        String index = request.getParameter("index");
-        if (index != null) {
-            Product product = (Product) session.getAttribute("product_" + index);
-            if (product != null ) {
-                System.out.println(product.getPrice());
-    %>
-
-    <h2>Product</h2>
-    <p>Product: <%= product.getName() %></p>
-    <p>Description: <%= product.getDescription() %></p>
-    <p>Stock: <%= product.getStock() %></p>
-    <p>Price: <%= product.getPrice() %></p>
-    <p>Supplier: <%= product.getSupplier() %></p>
-    <a href="products.jsp">
-        <button type="submit">Back to Products</button>
-    </a>
-    <%
-            }
-        }
-    %>
+    <h2>Create Product</h2>
+    <form action="CreateProductServlet" method="post">
+        <input type="hidden" name="id" value="<%=size%>">
+        <label>Name
+            <input type="text" name="name" required>
+        </label>
+        <label>Description
+            <input type="text" name="description" required>
+        </label>
+        <label>Stock
+            <input type="number" name="stock" required min="1" max="10000">
+        </label>
+        <label>Price
+            <input type="number" name="price" step="0.05" required min="1" max="1000">
+        </label>
+        <label>Supplier
+            <input type="text" name="supplier" required>
+        </label>
+        <input type="submit" name="update" value="Create">
+        <button type="submit" formaction="products.jsp" formnovalidate>Back to Products</button>
+    </form>
 </div>
 </body>
 </html>

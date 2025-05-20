@@ -49,10 +49,13 @@ public class ProductDBManager extends DBManager<Product> {
 
 
     public void update(Product oldProduct, Product newProduct) throws SQLException {
-        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE PRODUCTS SET Supplier = ?, Name = ? WHERE ProductId = ?");
-        preparedStatement.setString(1, newProduct.getSupplier());
-        preparedStatement.setString(2, newProduct.getName());
-        preparedStatement.setInt(3, oldProduct.getId());
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE PRODUCTS SET Name = ?, Description = ?, Stock = ?, Price = ?, Supplier = ? WHERE ProductId = ?");
+        preparedStatement.setString(1, newProduct.getName());
+        preparedStatement.setString(2, newProduct.getDescription());
+        preparedStatement.setInt(3, newProduct.getStock());
+        preparedStatement.setFloat(4, newProduct.getPrice());
+        preparedStatement.setString(5, newProduct.getSupplier());
+        preparedStatement.setInt(6, oldProduct.getId());
         preparedStatement.executeUpdate();
     }
 

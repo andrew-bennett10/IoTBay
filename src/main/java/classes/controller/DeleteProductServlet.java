@@ -23,7 +23,6 @@ public class DeleteProductServlet extends HttpServlet {
 
         try {
             Product product = db.Products().get(product_id);
-
             try {
 
                 db.Products().delete(product);
@@ -40,7 +39,7 @@ public class DeleteProductServlet extends HttpServlet {
             req.setAttribute("errorMessage", message);
             req.getRequestDispatcher("editProduct.jsp").forward(req, resp);
         } else {
-            resp.sendRedirect("index.jsp");
+            resp.sendRedirect("products.jsp");
         }
     }
 }
