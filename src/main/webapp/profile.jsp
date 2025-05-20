@@ -75,6 +75,7 @@
             if (!name.equals("Guest")) {
         %>
         <li><a href="profile.jsp">Profile</a></li>
+        <li><a href="createOrder.jsp">Create Order</a></li>
         <li><a href="logout.jsp">Logout</a></li>
         <%
         } else {

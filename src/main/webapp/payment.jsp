@@ -72,6 +72,8 @@
 %>
 
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,15 +118,34 @@
     <li><a href="#">About</a></li>
     <li><a href="products.jsp">Products</a></li>
     <li><a href="profile.jsp">Profile</a></li>
+    <li><a href="createOrder.jsp">Create Order</a></li>
     <li><a href="logout.jsp">Logout</a></li>
   </ul>
 </nav>
 
 <main>
+
   <div class="payment-container">
+    <%
+      String productName = (String) session.getAttribute("productName");
+      Integer quantity = (Integer) session.getAttribute("quantity");
+      Double unitPrice = (Double) session.getAttribute("unitPrice");
+      Double totalPrice = (Double) session.getAttribute("totalPrice");
+
+      if (productName == null) productName = "Unknown";
+      if (quantity == null) quantity = 0;
+      if (unitPrice == null) unitPrice = 0.0;
+      if (totalPrice == null) totalPrice = 0.0;
+    %>
+
     <h2>Payment Details</h2>
     <p>Order ID: <%= orderId %></p>
-    <p>Total Amount: $<%= String.format("%.2f", cartTotal) %></p>
+
+    <p><strong>Product:</strong> <%= productName %></p>
+    <p><strong>Quantity:</strong> <%= quantity %></p>
+    <p><strong>Total Price:</strong> $<%= String.format("%.2f", totalPrice) %></p>
+
+
     <form name="paymentForm" action="ProcessPaymentServlet" method="POST" onsubmit="return validateForm()">
       <div>
         <label for="cardName">Name on Card:</label>
@@ -142,6 +163,9 @@
         <label for="cvc">CVC:</label>
         <input type="text" id="cvc" name="cvc" value="<%= autoFillCvc %>" pattern="\d{3,4}" title="CVC must be 3 or 4 digits" required>
       </div>
+
+      <input type="hidden" name="amount" value="<%= cartTotal %>">
+
       <div>
         <input type="submit" value="Pay Now" class="button">
       </div>

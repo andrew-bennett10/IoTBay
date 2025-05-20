@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+
 public class DAO {
     ArrayList<DBManager<?>> tables;
 
@@ -16,6 +17,7 @@ public class DAO {
             tables.add(new StaffDBManager(connection));
             tables.add(new AccessLogDBManager(connection));
             tables.add(new PaymentDetailDBManager(connection));
+            tables.add(new OrderDBManager(connection));
         } catch (SQLException ex) {
             System.out.println("Error initializing DBManagers: " + ex.getMessage());
             ex.printStackTrace();
@@ -42,4 +44,8 @@ public class DAO {
     public PaymentDetailDBManager PaymentDetails() {
         return (PaymentDetailDBManager) tables.get(4);
     }
+
+    public OrderDBManager Orders() {return (OrderDBManager) tables.get(5);
+    }
+
 }

@@ -1,6 +1,7 @@
 package classes.model;
 import java.io.Serializable;
 
+
 public class Customer implements Serializable, User {
     private Integer userId;
     private String email;

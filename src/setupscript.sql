@@ -35,6 +35,7 @@ ALTER TABLE STAFF ADD COLUMN IsActive BOOLEAN DEFAULT TRUE;
 INSERT INTO STAFF (Email, Password, FName, LName, Role) VALUES ('Andrew@cool.com', '321', 'Andrew','Bennett','Technical Intern');
 INSERT INTO STAFF (Email, Password, FName, LName, Role) VALUES ('Matthis@cool.com', '3210', 'Matthis','Fontaine','Fungi');
 INSERT INTO STAFF (Email, Password, FName, LName, Role, PhoneNumber, IsActive) VALUES ('Jianan.Huang-3@student.uts.edu.au','123','Jianan','Huang', 'Admin','0430590617', true);
+INSERT INTO STAFF (Email, Password, FName, LName, Role, PhoneNumber, IsActive) VALUES ('leoluk2211@gmail.com','password','Leo','Luk', 'Admin','0490766705', true);
 
 
 DROP TABLE IF EXISTS PRODUCTS;
