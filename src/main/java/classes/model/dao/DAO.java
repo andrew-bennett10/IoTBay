@@ -16,6 +16,7 @@ public class DAO {
             tables.add(new StaffDBManager(connection));
             tables.add(new AccessLogDBManager(connection));
             tables.add(new PaymentDetailDBManager(connection));
+            tables.add(new SupplierDBManager(connection));
         } catch (SQLException ex) {
             System.out.println("Error initializing DBManagers: " + ex.getMessage());
             ex.printStackTrace();
@@ -25,6 +26,10 @@ public class DAO {
 
     public CustomerDBManager Customers() {
         return (CustomerDBManager) tables.get(0);
+    }
+
+    public SupplierDBManager Suppliers() {
+        return (SupplierDBManager) tables.get(0);
     }
 
     public StaffDBManager Staff() {

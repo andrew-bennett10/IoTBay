@@ -17,6 +17,14 @@ INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered) 
 INSERT INTO CUSTOMERS (Email, Address, Registered) VALUES ('bob@bruh.org', 'Anon Street', 'False');
 INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered, PhoneNumber, IsActive) VALUES ('2454434529@qq.com','123','Jack','Chen',22,'AU',true,'1234567',true);
 
+DROP TABLE IF EXISTS SUPPLIERS;
+CREATE TABLE SUPPLIERS (
+                    SupplierId INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ContactName VARCHAR(30),
+                    Company VARCHAR(30),
+                    Email VARCHAR(30),
+                    SuppStatus VARCHAR(30)
+);
 
 DROP TABLE IF EXISTS STAFF;
 CREATE TABLE STAFF (
