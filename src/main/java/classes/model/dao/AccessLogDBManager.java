@@ -150,21 +150,23 @@ public class AccessLogDBManager extends DBManager<AccessLog> {
     public void update(AccessLog oldAccessLog, AccessLog newAccessLog) throws SQLException {
         if (newAccessLog.getIsStaff()){
 
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE STAFF_ACCESS_LOGS SET LogoutDate = ? WHERE StaffId = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE STAFF_ACCESS_LOGS SET LogoutDate = ? WHERE StaffId = ? AND StaffAccLogId = ?");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String logoutFormatted = sdf.format(newAccessLog.getLogout());
             preparedStatement.setString(1, logoutFormatted);
             preparedStatement.setString(2, String.valueOf(newAccessLog.getUserId()));
+            preparedStatement.setString(3, String.valueOf(newAccessLog.getAccessLogId()));
 
             preparedStatement.executeUpdate();
             preparedStatement.close();
         }
         else{
-            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE CUSTOMER_ACCESS_LOGS SET LogoutDate = ? WHERE CustomerId = ?");
+            PreparedStatement preparedStatement = connection.prepareStatement("UPDATE CUSTOMER_ACCESS_LOGS SET LogoutDate = ? WHERE CustomerId = ? AND CustomerAccLogId = ?");
             SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String logoutFormatted = sdf.format(newAccessLog.getLogout());
             preparedStatement.setString(1, logoutFormatted);
             preparedStatement.setString(2, String.valueOf(newAccessLog.getUserId()));
+            preparedStatement.setString(3, String.valueOf(newAccessLog.getAccessLogId()));
 
             preparedStatement.executeUpdate();
             preparedStatement.close();
