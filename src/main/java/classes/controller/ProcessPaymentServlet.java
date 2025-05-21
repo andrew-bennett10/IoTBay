@@ -5,7 +5,6 @@ import classes.model.PaymentDetail;
 import classes.model.Staff;
 import classes.model.User;
 import classes.model.dao.DAO;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -50,17 +49,17 @@ public class ProcessPaymentServlet extends HttpServlet {
         }
 
         String orderId = (String) session.getAttribute("orderId");
-        Double cartTotal = (Double) session.getAttribute("cartTotal");
+        Double totalPrice = (Double) session.getAttribute("totalPrice"); // Changed from cartTotal
 
         // Currently orderID is randomly generated - may change this
         if (orderId == null) {
             orderId = UUID.randomUUID().toString();
         }
 
-        // If cartTotal is null set to 1.0
+        // If totalPrice is null set to 1.0
         // Will have to see how product pricing works - may change this
-        if (cartTotal == null) {
-            cartTotal = 1.0;
+        if (totalPrice == null) { // Changed from cartTotal
+            totalPrice = 1.0; // Changed from cartTotal
         }
 
         // If the user is not logged in or the email is null, redirect to payment.jsp with an error message
@@ -97,11 +96,11 @@ public class ProcessPaymentServlet extends HttpServlet {
         }
 
         try {
-            PaymentDetail paymentDetail = new PaymentDetail(orderId, customerEmail, cardName, cardNumber, expiryDate, cvc, cartTotal);
+            PaymentDetail paymentDetail = new PaymentDetail(orderId, customerEmail, cardName, cardNumber, expiryDate, cvc, totalPrice); // Changed from cartTotal
             dao.PaymentDetails().add(paymentDetail);
 
             session.setAttribute("paymentSuccess", "Payment processed successfully! Your Order ID is " + orderId);
-            session.removeAttribute("cartTotal");
+            session.removeAttribute("totalPrice"); // Changed from cartTotal
             session.removeAttribute("orderId");
 
             response.sendRedirect("main.jsp");

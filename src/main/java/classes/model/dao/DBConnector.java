@@ -12,7 +12,7 @@ public class DBConnector {
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        String url = "jdbc:sqlite:C:/Users/leolu/OneDrive/Documents/GitHub/IoTBay/IoTBayStore.db";
+        String url = "jdbc:sqlite:C:/Users/fuzzy/Documents/GitHub/IoTBay/IoTBayStore.db";
 //        String url = "jdbc:sqlite:IoTBayStore.db";
         try {
             connection = DriverManager.getConnection(url);

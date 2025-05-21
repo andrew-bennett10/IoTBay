@@ -61,7 +61,7 @@
 
 
   // Retrieve cart total from session, if available - this may have to be changed depending on cart implementation
-  Double cartTotal = (Double) session.getAttribute("cartTotal");
+  Double cartTotal = (Double) session.getAttribute("totalPrice");
   if (cartTotal == null) {
     cartTotal = 0.0;
   }
@@ -139,7 +139,6 @@
     %>
 
     <h2>Payment Details</h2>
-    <p>Order ID: <%= orderId %></p>
 
     <p><strong>Product:</strong> <%= productName %></p>
     <p><strong>Quantity:</strong> <%= quantity %></p>
@@ -164,7 +163,7 @@
         <input type="text" id="cvc" name="cvc" value="<%= autoFillCvc %>" pattern="\d{3,4}" title="CVC must be 3 or 4 digits" required>
       </div>
 
-      <input type="hidden" name="amount" value="<%= cartTotal %>">
+      <input type="hidden" name="amount" value="<%= totalPrice %>">
 
       <div>
         <input type="submit" value="Pay Now" class="button">
