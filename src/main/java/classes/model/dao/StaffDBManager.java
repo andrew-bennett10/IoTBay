@@ -1,6 +1,5 @@
 package classes.model.dao;
 
-import classes.model.Customer;
 import classes.model.Staff;
 
 import java.sql.Connection;
@@ -21,7 +20,6 @@ public class StaffDBManager extends DBManager<Staff> {
         super(connection);
     }
 
-    //CREATE
     public Staff add(Staff staff) throws SQLException {
         String sql = "INSERT INTO STAFF (Email, Password, FName, LName, Role, PhoneNumber, IsActive) VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
@@ -158,7 +156,6 @@ public class StaffDBManager extends DBManager<Staff> {
         return null;
     }
 
-    //UPDATE
     public void update(Staff oldStaff, Staff newStaff) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE STAFF SET Email = ?, Password = ?, FName = ?, LName = ?, Role = ? WHERE StaffId = ?");
         preparedStatement.setString(1, newStaff.getEmail());
@@ -189,7 +186,6 @@ public class StaffDBManager extends DBManager<Staff> {
         }
     }
 
-    //DELETE
     public void delete(Staff staff) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM STAFF WHERE StaffId = ?");
         preparedStatement.setInt(1, staff.getId());

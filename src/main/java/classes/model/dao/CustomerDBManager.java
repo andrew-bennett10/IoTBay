@@ -22,7 +22,6 @@ public class CustomerDBManager extends DBManager<Customer> {
         super(connection);
     }
 
-    //CREATE
     public Customer add(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO CUSTOMERS (Email, Password, FName, LName, Age, Address, Registered, PhoneNumber, IsActive) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
         preparedStatement.setString(1, customer.getEmail());
@@ -163,7 +162,6 @@ public class CustomerDBManager extends DBManager<Customer> {
         return null;
     }
 
-    //UPDATE
     public void update(Customer oldCustomer, Customer newCustomer) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("UPDATE CUSTOMERS SET Email = ?, Password = ?, FName = ?, LName = ?, Age = ?, Address = ?, Registered = ? WHERE CustomerId = ?");
         preparedStatement.setString(1, newCustomer.getEmail());
@@ -197,7 +195,6 @@ public class CustomerDBManager extends DBManager<Customer> {
         }
     }
 
-    //DELETE
     public void delete(Customer customer) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM CUSTOMERS WHERE CustomerId = ?");
         preparedStatement.setInt(1, customer.getId());

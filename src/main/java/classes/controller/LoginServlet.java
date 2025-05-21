@@ -3,7 +3,6 @@ package classes.controller;
 import classes.model.AccessLog;
 import classes.model.Customer;
 import classes.model.Staff;
-import classes.model.User;
 import classes.model.dao.CustomerDBManager;
 import classes.model.dao.DAO;
 
@@ -53,12 +52,10 @@ public class LoginServlet extends HttpServlet {
                 session.setAttribute("isActive",customer.getActive());
                 resp.sendRedirect("welcome.jsp");
             } else {
-                System.out.println("Running staff section");
                 StaffDBManager staffDBManager = db.Staff();
                 Staff staff = staffDBManager.get(email, password);
 
                 if (staff != null) { // Staff account found
-                    System.out.println("account found");
                     session.setAttribute("userType", "staff");
                     session.setAttribute("loggedInUser", staff);
                     session.setAttribute("name", staff.getName());
