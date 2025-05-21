@@ -36,10 +36,6 @@ public class OrderDBManager extends DBManager<Order> {
 
     }
 
-    public void create(Order order) throws SQLException {
-        orderDAO.createOrder(order);
-    }
-
     public List<Order> getAll() throws SQLException {
         return orderDAO.getAllOrders();
     }
