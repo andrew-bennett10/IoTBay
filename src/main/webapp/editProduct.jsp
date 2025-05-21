@@ -47,7 +47,7 @@
     <%
         String index = request.getParameter("index");
         if (index != null) {
-            Product product = (Product) session.getAttribute("product_" + index);
+            Product product = (Product) session.getAttribute("chosen_product" + index);
 
             if (product != null) {
     %>
