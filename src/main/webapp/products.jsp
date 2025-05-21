@@ -84,7 +84,7 @@
     </form>
     <% for (int i = 0; i < productList.size(); i++) {
             Product product = productList.get(i);
-            session.setAttribute("product_" + i, product);
+            session.setAttribute("chosen_product" + i, product);
             if (search == null) {
     %>
         <p><%=product.getName()%> | $<%=product.getPrice()%> | <%=product.getStock()%></p>
